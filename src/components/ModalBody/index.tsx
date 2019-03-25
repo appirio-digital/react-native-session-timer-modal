@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, AppState, Text } from 'react-native'
+import { View, TouchableOpacity, AppState, Text, Platform } from 'react-native'
 import moment, { Duration } from 'moment'
 
 import {
@@ -15,7 +15,7 @@ import styles from './styles'
 
 let defaultModalTimeDuration: Duration
 let modalEndtime: number = 0
-let functionDebounceTime: number = 310
+let functionDebounceTime: number = Platform.OS === 'ios' ? 400 : 0
 
 export default class ModalBody extends Component<
   IModalBodyProps,
@@ -32,15 +32,15 @@ export default class ModalBody extends Component<
     modalEndtime =
       defaultModalTimeDuration.asMilliseconds() + getBackgroundTimerEndTime()
 
-    if (modalConfigs) {
+    if (modalConfigs && Platform.OS === 'ios') {
       // Functions are called 10ms after the modal is hidden
       functionDebounceTime =
         Math.max(
-          modalConfigs.animationInTiming || 0,
-          modalConfigs.animationOutTiming || 0,
-          modalConfigs.backdropTransitionInTiming || 0,
-          modalConfigs.backdropTransitionOutTiming || 0,
-        ) + 10
+          modalConfigs.animationInTiming || 300,
+          modalConfigs.animationOutTiming || 300,
+          modalConfigs.backdropTransitionInTiming || 300,
+          modalConfigs.backdropTransitionOutTiming || 300,
+        ) + 100
     }
 
     this.startCountdown()
@@ -59,15 +59,13 @@ export default class ModalBody extends Component<
     }
   }
 
-  initializeSessionCountdown = (duration: number): Duration => {
-    return duration >= 0
+  initializeSessionCountdown = (duration: number): Duration =>
+    duration >= 0
       ? moment.duration(duration, 'milliseconds')
       : defaultModalTimeDuration
-  }
 
   startCountdown = () => {
     const duration = modalEndtime - getCurrentTimeStamp()
-
     if (duration > 0) {
       this.setState(
         { countdown: this.initializeSessionCountdown(duration) },
@@ -154,7 +152,7 @@ export default class ModalBody extends Component<
         </View>
         <View style={[styles.btnRow, buttonsContainerStyle]}>
           <TouchableOpacity
-            onPress={this.handleYesBtnPress}
+            onPress={this.handleNoBtnPress}
             style={[styles.modalBtn, cancelButtonConfigs.buttonStyle]}
           >
             <View style={cancelButtonConfigs.buttonViewStyle}>
@@ -166,7 +164,7 @@ export default class ModalBody extends Component<
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={this.handleNoBtnPress}
+            onPress={this.handleYesBtnPress}
             style={[styles.modalBtn, confirmButtonConfigs.buttonStyle]}
           >
             <View style={confirmButtonConfigs.buttonViewStyle}>

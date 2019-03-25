@@ -1,0 +1,21 @@
+---
+language: node_js
+node_js:
+  - "11.10.1"
+cache:
+  directories:
+    - ~/.npm
+    - .jest
+jobs:
+  include:
+    - stage: test
+      script:
+        - yarn tslint
+        - yarn test --ci
+        - yarn build
+    - stage: deploy
+      if: branch = master AND (NOT type = pull_request)
+      script:
+        - yarn test:coveralls
+        - yarn build
+        - yarn semantic-release

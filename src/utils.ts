@@ -8,7 +8,7 @@ let modalDuration: number = moment.duration(3, 'minutes').asMilliseconds()
 let defaultCallback: any = null
 let currentCallback: any = null
 let onTimerEnd: any = null
-let backgroundTimerEndTime: number = 0
+let backgroundTimerEndTime: number = new Date().getTime()
 let hideModal: any = null
 let timeout: number
 let authenticated: boolean = false
