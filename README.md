@@ -1,6 +1,8 @@
-# React Native Session Timer Modal
-
+[![Coverage Status](https://coveralls.io/repos/github/appirio-digital/react-native-session-timer-modal/badge.svg?branch=master)](https://coveralls.io/github/appirio-digital/react-native-session-timer-modal?branch=master)
+[![Build Status](https://travis-ci.org/appirio-digital/react-native-session-timer-modal.svg?branch=master)](https://travis-ci.org/appirio-digital/react-native-session-timer-modal)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2885acac20c841c19217f21f64b84bd9)](https://app.codacy.com/app/thousight/react-native-session-timer-modal?utm_source=github.com&utm_medium=referral&utm_content=appirio-digital/react-native-session-timer-modal&utm_campaign=Badge_Grade_Dashboard)
+
+# React Native Session Timer Modal
 
 A customizable session timer modal that times even when the app is on the background (not really, it uses timestamp to work around the iOS background limitation). It won't work with Expo since it makes use of [react-native-background-timer](https://github.com/ocetnik/react-native-background-timer) which requires native library linking.
 

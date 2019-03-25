@@ -8,6 +8,7 @@ module.exports = {
     '\\.js$': '<rootDir>/node_modules/react-native/jest/preprocessor.js',
     '.*.tsx?$': 'ts-jest',
   },
+  timers: 'fake',
   globals: {
     'ts-jest': {
       tsConfig: 'tsconfig.json',

@@ -9,6 +9,8 @@ jest.mock('Platform', () => {
   return Platform
 })
 
+jest.useFakeTimers()
+
 describe('SessionTimerModal', () => {
   const render = shallow(<SessionTimerModal />)
   const instance = render.instance() as SessionTimerModal

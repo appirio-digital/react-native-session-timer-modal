@@ -20,13 +20,13 @@ describe('utils', () => {
 
   it('handles startSessionTimer with callback parameter without crash', () => {
     expect(startSessionTimer(jest.fn())).toBe(undefined)
-    jest.runAllTimers()
   })
 
   it('handles startSessionTimer with no parameters without crash', () => {
     expect(startSessionTimer()).toBe(undefined)
-    jest.runAllTimers()
   })
+
+  jest.runAllTimers()
 
   describe('handleAppStateChangeForBackgroundTimer when authenticated', () => {
     jest.useRealTimers()
