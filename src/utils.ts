@@ -27,17 +27,13 @@ export const getCurrentTimeStamp = () => new Date().getTime()
 
 export const getBackgroundTimerEndTime = () => backgroundTimerEndTime
 
-export const startSessionTimer = (cb: any, interval: number) => {
+export const startSessionTimer = (cb?: any, interval?: number) => {
   const duration = interval || backgroundDuration
   if (!cb) {
     backgroundTimerEndTime = getCurrentTimeStamp() + duration
     currentCallback = defaultCallback
   } else {
     currentCallback = cb
-  }
-
-  if (!currentCallback) {
-    return
   }
 
   stopSessionTimer()

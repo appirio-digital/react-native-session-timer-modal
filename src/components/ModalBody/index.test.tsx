@@ -43,21 +43,25 @@ describe('ModalBody', () => {
     instance.handleNoBtnPress()
   })
 
-  it('is able to trigger start timer', () => {
-    const toTrigger = shallow(<ModalBody {...mockedProps} />)
-    toTrigger.setState({ countdown: moment.duration(1, 'minute') })
-    const instance = toTrigger.instance() as ModalBody
-    instance.handleAppStateChangeForCountdown('active')
-    instance.handleCountDown()
-    jest.runAllTimers()
-  })
-
   it('is able to trigger stop timer', () => {
     const toTrigger = shallow(<ModalBody {...mockedProps} />)
     toTrigger.setState({ countdown: moment.duration(1, 'milliseconds') })
     const instance = toTrigger.instance() as ModalBody
     instance.handleCountDown()
     jest.runAllTimers()
+  })
+
+  it('is able to trigger start timer', async () => {
+    jest.useRealTimers()
+    const toTrigger = shallow(<ModalBody {...mockedProps} />)
+    toTrigger.setState({ countdown: moment.duration(1, 'minute') })
+    const instance = toTrigger.instance() as ModalBody
+    await new Promise((resolve) =>
+      setTimeout(() => {
+        instance.handleAppStateChangeForCountdown('active')
+        resolve()
+      }, 2000),
+    )
   })
 
   it('is able to unmount', () => {

@@ -8,8 +8,9 @@ Enzyme.configure({
 jest.mock('react-native-background-timer', () => ({
   start: jest.fn(),
   stop: jest.fn(),
-  setInterval: jest.fn(),
-  clearInterval: jest.fn(),
+  setInterval: (callback?: void, duration?: number) =>
+    setTimeout(callback, duration),
+  clearInterval: (timeout: number) => clearTimeout(timeout),
 }))
 
 jest.useFakeTimers()

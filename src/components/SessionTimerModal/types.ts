@@ -25,7 +25,6 @@ export const defaultProps = {
   modalConfigs: {},
   confirmButtonConfigs: {},
   cancelButtonConfigs: {},
-  onTimerEnd: () => null,
 }
 
 export interface IButtonConfigs {
