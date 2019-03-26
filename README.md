@@ -1,7 +1,8 @@
 [![npm version](https://badge.fury.io/js/react-native-session-timer-modal.svg)](https://badge.fury.io/js/react-native-session-timer-modal)
 [![Build Status](https://travis-ci.org/appirio-digital/react-native-session-timer-modal.svg?branch=master)](https://travis-ci.org/appirio-digital/react-native-session-timer-modal)
 [![Coverage Status](https://coveralls.io/repos/github/appirio-digital/react-native-session-timer-modal/badge.svg?branch=master)](https://coveralls.io/github/appirio-digital/react-native-session-timer-modal?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2885acac20c841c19217f21f64b84bd9)](https://app.codacy.com/app/thousight/react-native-session-timer-modal?utm_source=github.com&utm_medium=referral&utm_content=appirio-digital/react-native-session-timer-modal&utm_campaign=Badge_Grade_Dashboard) [![Greenkeeper badge](https://badges.greenkeeper.io/appirio-digital/react-native-session-timer-modal.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/appirio-digital/react-native-session-timer-modal.svg)](https://greenkeeper.io/)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2885acac20c841c19217f21f64b84bd9)](https://app.codacy.com/app/thousight/react-native-session-timer-modal?utm_source=github.com&utm_medium=referral&utm_content=appirio-digital/react-native-session-timer-modal&utm_campaign=Badge_Grade_Dashboard)
 
 # React Native Session Timer Modal
 
