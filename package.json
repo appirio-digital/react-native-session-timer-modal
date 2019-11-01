@@ -28,7 +28,7 @@
     "@types/react-native-background-timer": "^2.0.0",
     "moment": "^2.24.0",
     "react-native-background-timer": "^2.1.1",
-    "react-native-modal": "^11.0.0"
+    "react-native-modal": "^11.5.1"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^6.1.0",
